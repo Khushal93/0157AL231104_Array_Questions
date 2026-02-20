@@ -1,0 +1,460 @@
+1) Reverse the array
+arr=[5,4,3,2,1]
+i=0
+j=len(arr)-1
+while i<j:
+    temp=arr[i]
+    arr[i]=arr[j]
+    arr[j]=temp
+    i+=1
+    j-=1
+    
+print(arr)
+
+
+2) Find maximum and minimum 
+arr=[5,4,3,2,1]
+maxi=arr[0]
+mini=arr[0]
+for i in arr:
+    if i>maxi:
+        maxi=i
+    if i<mini:
+        mini=i
+print(maxi,mini)
+
+
+3) Sum of elements in an array
+arr=[5,4,3,2,1]
+s=0
+for i in arr:
+    s+=i
+print(s)
+
+
+4) Find the second largest element
+arr=[5,3,1,6,4,2]
+fl=arr[0]
+sl=arr[0]
+for i in arr:
+    if i>fl:
+        sl=fl
+        fl=i
+print(sl)
+    
+
+5)Count frequency of elements
+arr=[5,3,2,6,4,2]
+freq={}
+
+for i in arr:
+    freq[i] = freq.get(i,0) + 1
+print(freq)    
+
+
+
+6)Check if array is sorted
+arr=[5,3,2,6,4,2]
+for i in range(1,len(arr)):
+    if arr[i-1]>arr[i]:
+        print("Not in ascending order")
+        break
+    
+
+7)Rotate array by k right positions
+arr=[5,3,2,6,4,2]
+k=3
+print("Before rotating ",arr)
+temp=[]
+for i in range(k,len(arr)):
+    temp.append(arr[i])
+for i in range(0,k):
+    temp.append(arr[i])
+arr=temp
+print("After rotating ",arr)
+    
+
+
+8)Find pair with target sum
+arr=[5,3,2,6,4,2,5]
+target = 10
+for i in range(0,len(arr)):
+    for j in range(i+1 , len(arr)):
+        if arr[i]+arr[j]==target:
+            print(arr[i]," & ", arr[j])
+
+
+9) Merge two sorted arrays
+a = [1,3,5,7]
+b = [2,4,6,8]
+i, j = 0, 0
+ans = []
+
+while i < len(a) and j < len(b):
+    if a[i] <= b[j]:
+        ans.append(a[i])
+        i += 1
+    else:
+        ans.append(b[j])
+        j += 1
+
+while i < len(a):
+    ans.append(a[i])
+    i += 1
+while j < len(b):
+    ans.append(b[j])
+    j += 1
+
+print(ans)
+
+
+
+
+10)Remove Duplicates from array
+a=[1,1,2,2,3,4,4]
+temp = []
+for i in a:
+    if i not in temp:
+        temp.append(i)
+print(temp)
+
+
+
+
+11)Remove given element from the array
+arr=[1,2,3,4]
+ele = 3
+ans =[]
+for i in arr:
+    if i==ele:
+	continue
+    else:
+	ans.append(i)
+print(ans)
+
+
+12)Find the missing number (1 to n)
+arr=[1,2,3,5]
+n = len(arr)+1
+s = n*(n+1)//2
+print(s - sum(arr))
+
+
+13)Find duplicates in an array
+arr=[1,2,3,5,3,2]
+d={}
+for i in range(0,len(arr)):
+    if arr[i] in d:
+        d[arr[i]]+=1
+        if d[arr[i]]>1:
+            print(arr[i])
+    else:
+        d[arr[i]]=1
+
+
+
+14)Intersection of two arrays
+a=[1,2,3,5,3,2]
+b=[1,3,5]
+ans = set(a) & set(b)
+print(ans)
+
+
+
+15)Find the union of two arrays
+a=[1,2,3,5,3,2]
+b=[1,3,5]
+ans = set(a) | set(b)
+print(ans)
+
+
+
+16)Check if two arrays are equal
+a=[1,2,3,5,4]
+b=[1,3,5,4,2]
+s1=sum(a)
+s2=sum(b)
+if s1==s2:
+    print("Equal")
+else:
+  print("Not equal")  
+
+
+
+17)Find the leader element
+n = len(arr)
+
+maxi = arr[n - 1]
+
+   
+for i in range(n - 1, -1, -1):
+    if arr[i] >= maxi:
+        ans.append(arr[i])
+        maxi = arr[i]
+
+# Reverse the result (since we collected from right to left)
+final = ans[::-1]
+
+
+
+
+18)Move all 0's to end
+arr=[1,0,2,1,0,3,0]
+ans =[]
+for i in arr:
+    if i!=0:
+        ans.append(i)
+for i in arr:
+    if i==0:
+        ans.append(i)
+print(ans)
+
+
+(OR)
+
+for i in range(len(arr)):
+        if arr[i]!=0:
+            arr[j],arr[i] = arr[i],arr[j]
+            j+=1
+
+
+
+19)Find the subarray with given sum
+arr=[1,0,2,1,5,7,4]
+target=8
+i=0
+s=0
+for j in range(len(arr)):
+    s+=arr[j]
+    
+    while s>target and i<=j:
+        s-=arr[i]
+        i+=1
+    if s==target:
+        print(arr[i:j+1])
+
+
+
+20)Rotate by k left places
+arr=[1,0,2,1,5,7,4]
+k=3
+ans=[]
+# 1,5,7,4,1,0,2
+for i in range(k,len(arr)):
+    ans.append(arr[i])
+for i in range(0,k):
+    ans.append(arr[i])
+print(ans)
+
+
+
+21) Kth smallest element
+arr=[5,1,3,4,2,6]
+k=2
+arr.sort()
+print(arr[k-1])
+
+
+
+22)Find all subarrays
+arr=[1,2,3]
+for i in range(0,len(arr)):
+	for j in range(i,len(arr)):
+		print(arr[i] , arr[j])
+
+ 
+
+
+23) Maximum subarray sum Kadane's algo
+arr=[1,7,-8,3,5,-3,4]
+s=0
+maxi = arr[0]
+for i in range(0,len(arr)):
+    s+=arr[i]
+    maxi = max(maxi,s)
+    if s<0:
+        s=0
+        
+print(maxi)
+
+
+
+
+24)Rearrange the array alternatively
+arr=[1,2,3,4,5,6]
+n=6
+max_idx = n-1
+min_idx = 0
+max_ele = arr[max_idx]+1
+for i in range(n):
+    if i%2==0:
+        arr[i] += (arr[max_idx] % max_ele) * max_ele
+        max_idx-=1
+    else:
+        arr[i] += (arr[min_idx] % max_ele) * max_ele
+        min_idx += 1
+for i in range(n):
+        arr[i] = arr[i]//max_ele
+print(arr)
+
+
+
+
+
+
+25)Majority element n/2 times (Boyer Moore's algo)
+arr=[1,7,-8,3,5,-3,4 ,4,4,4,4,4,4]
+ele=None
+cnt=0
+for i in arr:
+    if cnt==0:
+        ele=i
+    if i==ele:
+        cnt+=1
+    else:
+        cnt-=1
+if arr.count(ele)>len(arr)//2:
+    print(ele)
+else:
+    print("None")
+
+
+
+26)Find peak element
+nums=[1,7,-8,3,5,-3,4 ,4]
+n=len(nums)
+if n==1:
+    print(0)
+if nums[0]>nums[1]:
+    print(0)
+for i in range(0,n-1):
+    if nums[i] > nums[i - 1] and nums[i] > nums[i + 1]:
+            print(i)
+if nums[n-1]>nums[n-2]:
+        print(n-1)
+else:
+    print(-1)
+
+
+
+
+
+27)Find the first missing positive number
+nums=[1,2,8,4,5,6]
+n=6
+for i in range(n):
+    if nums[i]<=0 or nums[i]>n:
+            nums[i] = n + 1
+for i in range(n):
+    num = abs(nums[i])
+            
+    if 1<=num<=n:
+        if nums[num - 1] > 0:
+            nums[num - 1] = -nums[num - 1]
+for i in range(n):
+    if nums[i] > 0:
+        print(i + 1)
+        break
+    
+    
+
+
+
+
+
+
+
+28)Sort the arrays 0's,1's,2's
+arr=[1,1,0,2,0,0,1,2]
+low=0
+mid=0
+high=len(arr) - 1
+
+while mid <= high:
+    if arr[mid] == 0:
+        arr[low], arr[mid] = arr[mid], arr[low]
+        low += 1
+        mid += 1
+
+    elif arr[mid] == 1:
+        mid += 1
+
+    else:  
+        arr[mid], arr[high] = arr[high], arr[mid]
+        high -= 1
+print(arr)
+
+
+
+
+
+
+29)Find the largest consecutive sequence of integers
+nums=[1,2,3,4,8,6]
+n=len(nums)
+if n == 0:
+    print(0)
+longest=1
+s = set(nums)
+for i in s:
+    if i-1 not in s:
+        ele=i
+        cnt=1
+        while ele+1 in s:
+            cnt+=1
+            ele+=1
+        longest = max(longest , cnt)
+print(longest)    
+
+
+
+
+
+30)Product of array except self
+nums=[1,1,8,2,4,3,1,2]
+n=len(nums)
+result=[1]*n
+prefix = 1
+for i in range(n):
+    result[i] = prefix
+    prefix *= nums[i]
+suffix = 1
+for i in range(n-1,-1,-1):
+    result[i]*=suffix
+    suffix*=nums[i]
+print(result)
+
+
+
+31)Equilibrium point
+nums=[1,1,8,2,4,3,1,2]
+n=len(nums)
+total = sum(nums)
+lsum=0
+for i in range(0,len(nums)):
+    total-=nums[i]
+    if lsum==total:
+        print(i)
+    lsum+=nums[i]
+    
+    
+        
+32)Find the maximum product pairs
+
+
+
+
+
+33)Find maximum difference
+nums=[7,1,5,4]
+n=len(nums)
+min_val = nums[0]
+max_diff = -1
+        
+for i in range(1, len(nums)):
+    if nums[i] > min_val:
+        max_diff = max(max_diff, nums[i] - min_val)
+    else:
+        min_val = nums[i]
+        
+print(max_diff)
